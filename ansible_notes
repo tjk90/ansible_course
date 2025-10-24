@@ -1,8 +1,16 @@
 ## SSH
-Run ssh agent to cache the ssh key into memory
+
+## Run ssh agent to cache the ssh key into memory
 eval $(ssh-agent)
 
-ssh-add ~/.ssh/"keyname"
+ssh-add ~/.ssh/<key-name>
+
+## alias to run ssh agent and add the key
+nano .bashrc
+## at the bottom of the .bashrc add
+alias ssha='eval $(ssh-agent) && ssh-add ~/.ssh/<key-name>'
+______________________________
 
 ## Ansible
 ansible all -m ping --limit server@<ip-address>
+ansible all -m gather_facts --limit server@<ip-address>
