@@ -12,5 +12,20 @@ alias ssha='eval $(ssh-agent) && ssh-add ~/.ssh/<key-name>'
 ______________________________
 
 ## Ansible
+
+# Create an Invetory file for ansible to take remote control
+nano inventory
+## Inside the file add the host/hosts IP:
+host@<ip-address>
+
+
+
+## Ansible commands
+# ping 
 ansible all -m ping --limit server@<ip-address>
 ansible all -m gather_facts --limit server@<ip-address>
+
+# update  
+ansible all -m apt -a update_cache=true --become --ask-become-pass
+
+## note: '--become' is same as 'sudo' and '--ask-become-pass' will ask for the password
