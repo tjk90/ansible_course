@@ -1,0 +1,8 @@
+## SSH
+Run ssh agent to cache the ssh key into memory
+eval $(ssh-agent)
+
+ssh-add ~/.ssh/"keyname"
+
+## Ansible
+ansible all -m ping --limit server@<ip-address>
